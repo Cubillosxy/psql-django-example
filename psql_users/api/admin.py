@@ -6,12 +6,12 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'created_at', 'last_login', 'apiKey')
 
     def username(self, obj):
-        return obj.username
+        return obj.user.username
 
     def email(self, obj):
-        return obj.email
+        return obj.user.email
 
     def apiKey(self, obj):
         return obj.get_apiKey()
-
+    
 admin.site.register(User, UserAdmin)
