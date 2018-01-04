@@ -131,3 +131,8 @@ STATIC_URL = '/static/'
 
 #Vars admin
 SIGN_API = "Trafilea"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100,
+}

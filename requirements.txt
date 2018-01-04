@@ -1,1 +1,5 @@
-Django==1.11.9
+Django==2.0.1
+djangorestframework==3.7.7
+psycopg2==2.7.3.2
+pandas==0.22.0
+

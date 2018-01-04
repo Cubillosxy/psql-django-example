@@ -13,7 +13,7 @@ class User(models.Model):
 
     #generate and return apiKey for this user
     def get_apiKey(self):
-        sign = "%s-%s-%s" % (self.user.username, SIGN_API, self.user.password)
+        sign = "%s-%s-%s" % (self.user.username, SIGN_API, self.user.email)
         return "trafilea" + hashlib.md5(sign.encode('utf-8')).hexdigest()
 
     def __unicode__(self):
