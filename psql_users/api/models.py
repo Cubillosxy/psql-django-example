@@ -8,8 +8,8 @@ import hashlib
 
 class User(models.Model):
     user = models.OneToOneField(UserD, on_delete=models.CASCADE)
-    created_at = models.CharField(max_length=40, blank=True)
-    last_login = models.CharField(max_length=40, blank=True)
+    created_at = models.CharField(max_length=40, null=True)
+    last_login = models.CharField(max_length=40, null=True)
 
     #generate and return apiKey for this user
     def get_apiKey(self):
