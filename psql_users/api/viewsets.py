@@ -22,10 +22,12 @@ class UserViewSet(viewsets.ModelViewSet):
 @permission_classes((permissions.IsAuthenticated,))
 def users(request):
 
-    print(request.META)
+    apikey = request.META.get("HTTP_APIKEY")
     username = request.user.username
     email = request.user.email
     sign = "%s-%s-%s" % (username, SIGN_API, email)
     apikey_user = "trafilea" + hashlib.md5(sign.encode('utf-8')).hexdigest()
     
-    return Response({"hola":"ashhs"})
+    users = UserSerializer(User.objects.all(), many=True).data
+    
+    return Response(users)
