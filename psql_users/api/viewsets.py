@@ -13,7 +13,7 @@ class UserViewSet(viewsets.ModelViewSet):
     
     def get_queryset(self):
         queryset = User.objects.all()
-        print((self.request))
+        print("ass - -as ", (self.request.query_params.get('apikey')))
         sign = "%s-%s-%s" % (self.request.user.username, SIGN_API, self.request.user.password)
 
         return queryset
@@ -21,11 +21,15 @@ class UserViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticated,))
 def users(request):
-
-    print(request.META)
+    apikey = request.query_params.get('apikey')
     username = request.user.username
     email = request.user.email
     sign = "%s-%s-%s" % (username, SIGN_API, email)
     apikey_user = "trafilea" + hashlib.md5(sign.encode('utf-8')).hexdigest()
     
-    return Response({"hola":"ashhs"})
+    if apikey != apikey_user:
+        return Response({"status" : "APIKeyinvalid"}, status=401)
+
+    
+
+    return Response("hola")
