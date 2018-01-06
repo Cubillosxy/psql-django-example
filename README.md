@@ -3,7 +3,7 @@
  - postgresql
 
  ## Get started
-
+ - git clone https://github.com/Cubillosxy/psql-django-example.git
  - install postgres
  - Ubunto 16
  `sudo apt-get install python-dev libpq-dev postgresql postgresql-contrib -y`
