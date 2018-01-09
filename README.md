@@ -1,12 +1,14 @@
  ## Requirements
  - python 3
  - postgresql
-
  ## Get started
- - git clone https://github.com/Cubillosxy/psql-django-example.git
+ - clone repositorie : `git clone https://github.com/Cubillosxy/psql-django-example.git`
  - install postgres
- - Ubunto 16
- `sudo apt-get install python-dev libpq-dev postgresql postgresql-contrib -y`
+   * Ubunto 16
+   `sudo apt-get install python-dev libpq-dev postgresql postgresql-contrib -y`
+   * Mac Os Sierra
+   1. `brew install postgresql`
+   2. `brew cleanup postgresql`
  #### create db
   1. `sudo su - postgres`
   2. `psql`
